@@ -18,5 +18,6 @@ namespace ReconnectAPI.Models
         public DbSet<Tbl_RegistrosJugadores> Tbl_RegistrosJugadores { get; set; }
         public DbSet<Cat_Categorias> Cat_Categorias { get; set; }
         public DbSet<Cat_Personajes> Cat_Personajes { get; set; }
+        public DbSet<Cat_Familias> Cat_Familias { get; set; }
     }
 }
