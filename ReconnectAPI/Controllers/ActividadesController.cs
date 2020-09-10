@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,51 +11,50 @@ namespace ReconnectAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class CategoriasController : ControllerBase
+    public class ActividadesController : ControllerBase
     {
         private readonly ApplicationDbContext context;
 
-        public CategoriasController(ApplicationDbContext context)
+        public ActividadesController(ApplicationDbContext context)
         {
             this.context = context;
         }
 
-        // GET: api/Categorias
+        // GET: api/Actividades
         [HttpGet]
-        public ActionResult<IEnumerable<Cat_Categorias>> Get()
+        public ActionResult<IEnumerable<Cat_Actividades>> Get()
         {
-            return context.Cat_Categorias.ToList();
+            return context.Cat_Actividades.ToList();
         }
 
-        // GET: api/Categorias/5
+        // GET: api/Actividades/5
         [HttpGet("{id}")]
-        public ActionResult<Cat_Categorias> Get(int id)
+        public ActionResult<Cat_Actividades> Get(int id)
         {
-            var categoria = context.Cat_Categorias.FirstOrDefault(x => x.Id_Categoria == id);
+            var actividad = context.Cat_Actividades.FirstOrDefault(x => x.Id_Actividad == id);
 
-            if (categoria == null)
+            if (actividad == null)
             {
                 return NotFound();
             }
 
-            return categoria;
+            return actividad;
         }
 
-        // POST: api/Categorias
+        // POST: api/Actividades
         [HttpPost]
-        public ActionResult Post([FromBody] Cat_Categorias categoria)
+        public ActionResult Post([FromBody] Cat_Actividades actividad)
         {
-            context.Cat_Categorias.Add(categoria);
+            context.Cat_Actividades.Add(actividad);
             context.SaveChanges();
             return Ok();
         }
 
-        // PUT: api/Categorias/5
+        // PUT: api/Actividades/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Cat_Categorias value)
+        public ActionResult Put(int id, [FromBody] Cat_Actividades value)
         {
-            if (id != value.Id_Categoria)
+            if (id != value.Id_Actividad)
             {
                 return BadRequest();
             }
