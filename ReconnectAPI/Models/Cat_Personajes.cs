@@ -12,6 +12,7 @@ namespace ReconnectAPI.Models
         public int Id_Personaje { get; set; }
         [Display(Name = "Familia")]
         public int? Id_Familia { get; set; }
+        public int? Id_Nivel { get; set; }
         [Required]
         [Display(Name = "Descripción")]
         [StringLength(40, ErrorMessage = "El campo Descripción del Badge debe tener 40 caracteres o menos")]
