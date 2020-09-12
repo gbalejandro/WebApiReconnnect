@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -12,43 +11,50 @@ namespace ReconnectAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RegistroJugadoresController : ControllerBase
+    public class AtomosController : ControllerBase
     {
         private readonly ApplicationDbContext context;
 
-        public RegistroJugadoresController(ApplicationDbContext context)
+        public AtomosController(ApplicationDbContext context)
         {
             this.context = context;
         }
 
-        // GET: api/RegistroJugadores
+        // GET: api/Atomos
         [HttpGet]
-        public ActionResult<IEnumerable<Tbl_RegistrosJugadores>> Get()
+        public ActionResult<IEnumerable<Cat_Atomos>> Get()
         {
-            return context.Tbl_RegistrosJugadores.ToList();
+            return context.Cat_Atomos.ToList();
         }
 
-        // GET: api/RegistroJugadores/5
+        // GET: api/Atomos/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<Cat_Atomos> Get(int id)
         {
-           return "value";
+            var atomo = context.Cat_Atomos.FirstOrDefault(x => x.Id_Atomo == id);
+
+            if (atomo == null)
+            {
+                return NotFound();
+            }
+
+            return atomo;
         }
 
-        // POST: api/RegistroJugadores
+        // POST: api/Atomos
         [HttpPost]
-        public ActionResult Post([FromBody] Tbl_RegistrosJugadores registro)
+        public ActionResult Post([FromBody] Cat_Atomos atomo)
         {
-            context.Tbl_RegistrosJugadores.Add(registro);
+            context.Cat_Atomos.Add(atomo);
             context.SaveChanges();
             return Ok();
         }
 
-        // PUT: api/RegistroJugadores/5
+        // PUT: api/Atomos/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Tbl_RegistrosJugadores value)
+        public ActionResult Put(int id, [FromBody] Cat_Atomos value)
         {
-            if (id != value.Id_RegistroJugador)
+            if (id != value.Id_Atomo)
             {
                 return BadRequest();
             }
