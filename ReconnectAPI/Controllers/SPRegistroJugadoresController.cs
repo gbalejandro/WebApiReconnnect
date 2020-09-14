@@ -35,6 +35,22 @@ namespace ReconnectAPI.Controllers
             return response;
         }
 
+        [HttpGet("{id}/getbyranking")]
+        public async Task<ActionResult<RankingJugador>> GetByRanking(int id)
+        {
+            var response = await _repository.GetByRanking(id);
+            if (response == null) { return NotFound(); }
+            return response;
+        }
+
+        [HttpGet("{id}/getbyactivity")]
+        public async Task<ActionResult<ActividadJugador>> GetByActivity(int id)
+        {
+            var response = await _repository.GetByActivity(id);
+            if (response == null) { return NotFound(); }
+            return response;
+        }
+
         // POST: api/SPRegistroJugadores
         [HttpPost]
         public void Post([FromBody] string value)
