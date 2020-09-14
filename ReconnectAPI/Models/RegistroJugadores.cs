@@ -13,5 +13,6 @@ namespace ReconnectAPI.Models
         public string Familia { get; set; }
         public string Nivel { get; set; }
         public int Puntos { get; set; }
+        public string Equipo { get; set; }
     }
 }
