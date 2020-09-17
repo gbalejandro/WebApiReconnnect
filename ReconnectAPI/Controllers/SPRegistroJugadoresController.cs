@@ -28,11 +28,15 @@ namespace ReconnectAPI.Controllers
 
         // GET: api/SPRegistroJugadores/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<RegistroJugadores>> Get(int id)
+        public async Task<Object> Get(int id)
         {
-            var response = await _repository.GetById(id);
-            if (response == null) { return NotFound(); }
-            return response;
+            var info = await _repository.GetById(id);
+            var ranking = await _repository.GetByRanking(id);
+            var activity = await _repository.GetByActivity(id);
+            var result = new Object[] { info, ranking, activity };
+            //var response = await _repository.GetById(id);
+            if (info == null && ranking == null && activity == null) { return NotFound(); }
+            return result;
         }
 
         [HttpGet("{id}/getbyranking")]
