@@ -22,5 +22,8 @@ namespace ReconnectAPI.Models
         public DbSet<UsuarioLogin> UsuarioLogin { get; set; }
         public DbSet<Cat_Actividades> Cat_Actividades { get; set; }
         public DbSet<Cat_Atomos> Cat_Atomos { get; set; }
+        public DbSet<Cat_Equipos> Cat_Equipos { get; set; }
+        public DbSet<Cat_Frecuencias> Cat_Frecuencias { get; set; }
+        public DbSet<Cat_Niveles> Cat_Niveles { get; set; }
     }
 }

@@ -27,9 +27,9 @@ Values (1,1,'Pioneer',1,getdate())
 	   ,(2,1,'Driver',1,getdate())
 	   ,(2,1,'Integrator',1,getdate())
 	   ,(2,1,'Guardian',1,getdate())
-	   ,(1,2,'Protón',1,getdate())
-	   ,(1,2,'Neutrón',1,getdate())
-	   ,(2,2,'Electrón',1,getdate())
+	   ,(1,2,'Protï¿½n',1,getdate())
+	   ,(1,2,'Neutrï¿½n',1,getdate())
+	   ,(2,2,'Electrï¿½n',1,getdate())
 go
 --Select * from Cat_Personajes
 go
@@ -50,17 +50,17 @@ Insert into  Cat_Categorias (Id_Nivel,Descripcion_Categoria,Descripcion_Badge,Pu
 								  ,(1,'Cat 3','Experimentador',450,1,getdate())
 								  ,(1,'Cat 4','Analizador',675,1,getdate())
 								  ,(1,'Cat 5','Investigador',1012,1,getdate())
-								  ,(2,'Cat 6','Evolution + Badge de Energía',1519,1,getdate())
+								  ,(2,'Cat 6','Evolution + Badge de Energï¿½a',1519,1,getdate())
 								  ,(2,'Cat 7','Magnetismo',2278,1,getdate())
-								  ,(2,'Cat 8','Simetría',3417,1,getdate())
+								  ,(2,'Cat 8','Simetrï¿½a',3417,1,getdate())
 								  ,(2,'Cat 9','Electricidad',5126,1,getdate())
 								  ,(2,'Cat 10','Frecuencia',5638,1,getdate())
-								  ,(3,'Cat 11','Evolution + Badge de Conexión',6202,1,getdate())
-								  ,(3,'Cat 12','Fusión',6822,1,getdate())
+								  ,(3,'Cat 11','Evolution + Badge de Conexiï¿½n',6202,1,getdate())
+								  ,(3,'Cat 12','Fusiï¿½n',6822,1,getdate())
 								  ,(3,'Cat 13','Sustancia',10234,1,getdate())
 								  ,(3,'Cat 14','Compuesto',15350,1,getdate())
-								  ,(3,'Cat 15','Fórmula',23026,1,getdate())
-								  ,(4,'Cat 16','Átomo',34538,1,getdate())
+								  ,(3,'Cat 15','Fï¿½rmula',23026,1,getdate())
+								  ,(4,'Cat 16','ï¿½tomo',34538,1,getdate())
 go
 --Select * from Cat_Categorias
 go
@@ -71,17 +71,17 @@ Insert into  Cat_Frecuencias(Descripcion,Puntos,Activo,Fecha_Registro)
 						   ,('Proactivo',400,1,getdate())
 go
 Insert into  Cat_Actividades(Id_Frecuencia,Codigo,Descripcion,Puntos,Horas_Vigencia,Activo,Fecha_Registro)
-					Values (1,'AE43562','Curso de seguridad de la información',100,24,1,getdate())
+					Values (1,'AE43562','Curso de seguridad de la informaciï¿½n',100,24,1,getdate())
 						  ,(1,'SDS0988','Cnferencia de datos personales',100,48,1,getdate())
 						  ,(1,'DFFS233','Cuestionario de correos phishing',200,48,1,getdate())
-						  ,(1,'SDF5445','Actualización Covid19',100,24,1,getdate())
+						  ,(1,'SDF5445','Actualizaciï¿½n Covid19',100,24,1,getdate())
 						  ,(1,'DFS5566','Curso de excel',400,24,1,getdate())
 						  ,(1,'234FDFF','Seminario Agile',400,72,1,getdate())
 						  ,(1,'345DFDD','Boot Camp metodologias agiles',400,36,1,getdate())
 						  ,(1,'FF42233','Curso Interview',200,24,1,getdate())
 						  ,(1,'SDF0977','COnferencia Deloitte',100,48,1,getdate())
 						  ,(1,'SDF4544','Cuestionario 200',200,48,1,getdate())
-						  ,(1,'DGVG444','Actualización Covid19-Agosto',100,24,1,getdate())
+						  ,(1,'DGVG444','Actualizaciï¿½n Covid19-Agosto',100,24,1,getdate())
 						  ,(1,'ASDF443','Curso de excel avanzado',400,24,1,getdate())
 						  ,(1,'XCVB223','Seminario Agile version 2',400,72,1,getdate())
 						  ,(1,'FTE2344','Boot Camp metodologias agiles version 2.0',400,36,1,getdate())
@@ -100,7 +100,7 @@ Insert into  Cat_Equipos(Id_Atomo,Descripcion,Numero_Integrantes,Activo,Fecha_Re
 					   ,(1,'Extremos',6,1,getdate())
 					   ,(1,'Ganadores',6,1,getdate())
 go
-Insert into  Tbl_RegistrosJugadores (Id_Jugador,Id_Categoria,Id_Personaje,Activo,Fecha_Inicio,Fecha_Fecha_Fin)
+Insert into  Tbl_RegistrosJugadores (Id_Jugador,Id_Categoria,Id_Personaje,Activo,Fecha_Inicio,Fecha_Fin)
 							 Values (1,1,1,1,Getdate()-15,getdate()-13) -- Jugardor 1 --1 al 9
 							       ,(1,2,1,1,Getdate()-13,getdate()-12)
 								   ,(1,3,1,1,Getdate()-12,getdate()-10)
@@ -287,7 +287,7 @@ Insert into  Tbl_EquiposJugadores(Id_Equipo,Id_RegistroJugador,Lider,Activo,Fech
 								,(2,36,0,1,Getdate())
 								,(3,48,1,1,Getdate())
 go
---- Administración
+--- Administraciï¿½n
 Insert into  Cat_Usuarios(EmpleadoID,UsuarioID,Nombre_Completo,Activo,Fecha_Registro)
 				  Values ('234321','TBuendia','Tania Buendia',1,getdate())
 						,('532345','MEsquivel','Miguel Esquivel',1,getdate())
