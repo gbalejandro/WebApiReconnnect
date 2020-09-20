@@ -25,5 +25,6 @@ namespace ReconnectAPI.Models
         public DbSet<Cat_Equipos> Cat_Equipos { get; set; }
         public DbSet<Cat_Frecuencias> Cat_Frecuencias { get; set; }
         public DbSet<Cat_Niveles> Cat_Niveles { get; set; }
+        public DbSet<Tbl_EquiposJugadores> Tbl_EquiposJugadores { get; set; }
     }
 }
