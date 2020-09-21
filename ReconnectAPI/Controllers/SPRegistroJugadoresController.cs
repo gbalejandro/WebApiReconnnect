@@ -33,9 +33,11 @@ namespace ReconnectAPI.Controllers
             var info = await _repository.GetById(id);
             var ranking = await _repository.GetByRanking(id);
             var activity = await _repository.GetByActivity(id);
-            var result = new Object[] { info, ranking, activity };
+            var rankingtop10 = await _repository.GetRankingTop10();
+
+            var result = new Object[] { info, ranking, activity, rankingtop10 };
             //var response = await _repository.GetById(id);
-            if (info == null && ranking == null && activity == null) { return NotFound(); }
+            if (info == null && ranking == null && activity == null && rankingtop10 == null) { return NotFound(); }
             return result;
         }
 

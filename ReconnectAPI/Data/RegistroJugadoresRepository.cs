@@ -122,5 +122,46 @@ namespace ReconnectAPI.Data
                 Puntos = (int)reader["Puntos"]
             };
         }
+
+        public async Task<List<RankingTop10>> GetRankingTop10()
+        {
+            using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_RankingGeneralTop10", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    List<RankingTop10> response = null;
+                    await conn.OpenAsync();
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            response = MapToRankingTop10(reader);
+                        }
+                    }
+                    return response;
+                }
+            }
+        }
+
+        private List<RankingTop10> MapToRankingTop10(SqlDataReader reader)
+        {
+            List<RankingTop10> top = new List<RankingTop10>();
+
+            while (reader.Read())
+            {
+                RankingTop10 rank = new RankingTop10();
+                rank.Posicion = Convert.ToInt16(reader["Posicion"]);
+                rank.Personaje = reader["Personaje"].ToString();
+                rank.Jugador = reader["Jugador"].ToString();
+                rank.Familia = reader["Familia"].ToString();
+                rank.Puntos = Convert.ToInt16(reader["Puntos"]);
+
+                top.Add(rank);
+            }
+
+            return top;
+        }
     }
 }
